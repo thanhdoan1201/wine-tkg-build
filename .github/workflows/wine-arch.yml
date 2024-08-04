@@ -15,8 +15,7 @@ jobs:
       - name: Compile
         run: |
           echo -e "[multilib]\nInclude = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
-          pacman -Syu --noconfirm base-devel sudo ntsync-dkms
-          modprobe ntsync
+          pacman -Syu --noconfirm base-devel sudo
           useradd user -G wheel && echo "user ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
           chown user -R . && cd wine-tkg-git
           # Workaround for jack&jack2 conflict https://github.com/Frogging-Family/wine-tkg-git/issues/237
