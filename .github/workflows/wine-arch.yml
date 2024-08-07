@@ -1,4 +1,4 @@
-name: Wine Arch Linux CI
+name: Wine NTSync Arch Linux CI
 
 on:
   schedule:
