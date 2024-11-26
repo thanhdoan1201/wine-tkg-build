@@ -1,3 +1,5 @@
+# New build will in [Actions] tab. Ntsync version: I will update weekin in Releases.  
+
 # Wine to rule them all !
 
 You must be logged in to GitHub in order to download Wine or Proton nightly builds.
