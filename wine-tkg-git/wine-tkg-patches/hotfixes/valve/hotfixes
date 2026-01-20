@@ -50,6 +50,7 @@ if [[ "$_plain_version" = *_10.0 ]]; then
 
   # Bleeding edge atiadlxx ADL2 changes are failing to build against current sniper container (and Archlinux alike), let's revert
   if [[ "$_LOCAL_PRESET" = valve-exp-bleeding ]]; then
+    cp "$_where"/wine-tkg-patches/hotfixes/valve/fixes/0001-revert-atiadlxx-ADL2-2.myrevert "$_where"/
     cp "$_where"/wine-tkg-patches/hotfixes/valve/fixes/0001-revert-atiadlxx-ADL2.myrevert "$_where"/
   fi
 
