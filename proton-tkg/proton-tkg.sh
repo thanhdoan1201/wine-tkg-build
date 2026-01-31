@@ -24,7 +24,16 @@ _no_steampath="false"
 
 # true disables building in valve SDK container to build against current system libs
 # this might lead to issues with some games and anticheats
-_no_container="true"
+# !!! "false" requires a working Docker or Podman setup !!!
+_no_container="false"
+
+# If user passes "nocontainer", let's bypass default
+if [ "$1" = "nocontainer" ]; then
+  _no_container="true"
+fi
+if [ "$_no_container" = "true" ]; then
+  echo -e "\n###############################################\n#####   NOT using Valve SDK Container !   #####\n###############################################"
+fi
 
 function resources_cleanup {
   # The symlinks switch doesn't need the recursive flag, but we'll use it temporarily
@@ -870,7 +879,7 @@ elif [ "$1" = "build_in_valve_container" ]; then
   build_in_valve_container
 else
   # If $1 contains a path, and it exists, use it as default for config
-  if [ -n "$1" ]; then
+  if [ -n "$1" ] && [ "$1" != "nocontainer" ]; then
     _EXT_CONFIG_PATH="$(readlink -m $1)"
     if [ ! -f "$_EXT_CONFIG_PATH" ]; then
       echo "User-supplied external config file '${_EXT_CONFIG_PATH}' not found! Please fix your passed path!"
