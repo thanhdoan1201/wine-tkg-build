@@ -856,7 +856,11 @@ function build_in_valve_container {
   sed -i "s|STEAMRT_IMAGE ?= registry.gitlab.steamos.cloud.*|STEAMRT_IMAGE ?= ghcr.io/open-wine-components/umu-sdk:latest|g" Makefile.in
 
   mkdir build && cd build
-  ../configure.sh --enable-ccache --build-name=TKG
+  _configure_flags="--enable-ccache --build-name=TKG"
+  if command -v selinuxenabled > /dev/null && selinuxenabled; then
+    _configure_flags+=" --relabel-volumes"
+  fi
+  ../configure.sh $_configure_flags
   make redist
   echo "_proton_pkgdest='$_nowhere/external-resources/Proton/build/redist'" >> "$_nowhere"/proton_tkg_token
 }
