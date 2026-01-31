@@ -14,7 +14,7 @@ It can create Steamplay compatible wine builds based on wine-tkg-git + additiona
 
 The recommended way to build Valve-based Proton builds is to use Valve SDK Container, which requires a working Docker or Podman setup. Arch [Podman](https://wiki.archlinux.org/title/Podman) /
 [Docker](https://wiki.archlinux.org/title/Docker), Debian [Podman](https://wiki.debian.org/Podman) /
-[Docker](https://wiki.debian.org/Docker))
+[Docker](https://wiki.debian.org/Docker).
 
 However be aware that path have known issues with Wine upstream based builds. For more info, see [Building](https://github.com/Frogging-Family/wine-tkg-git/blob/master/proton-tkg/README.md#building-wiki-page-if-needed-)
 
